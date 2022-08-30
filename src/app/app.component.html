@@ -1,6 +1,6 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="travelerDetailsForm" (ngSubmit)="onSubmit()">
   <div formGroupName="bookingGuest">
-    <h2>Address</h2>
+    <h2>Traveler Details Form</h2>
 
     <label for="first-name">First Name: </label>
     <input id="first-name" type="text" formControlName="firstName" />
@@ -14,16 +14,16 @@
 
   <ng-container formArrayName="guests">
     <div
-      *ngFor="let room of guestControls; let roomIndex = index"
+      *ngFor="let room of roomsControls; let roomIndex = index"
       [formArrayName]="roomIndex"
     >
-      <h3>Room no {{ roomIndex }}</h3>
+      <h3>Room no {{ roomIndex + 1 }}</h3>
 
       <div
         *ngFor="let guest of room.controls; let guestIndex = index"
         [formGroupName]="guestIndex"
       >
-        <h4>Guest no {{ guestIndex }}</h4>
+        <h4>Guest no {{ guestIndex + 1 }}</h4>
 
         <label for="first-name">First Name: </label>
         <input id="first-name" type="text" formControlName="firstName" />
@@ -34,5 +34,5 @@
     </div>
   </ng-container>
 
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  <button type="submit" [disabled]="!travelerDetailsForm.valid">Submit</button>
 </form>

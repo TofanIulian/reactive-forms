@@ -9,13 +9,13 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class AppComponent implements OnInit {
   title = 'reactive-forms';
 
-  profileForm = new FormGroup({
+  travelerDetailsForm = new FormGroup({
     bookingGuest: new FormGroup({
       firstName: new FormControl(''),
       lastName: new FormControl(''),
       phone: new FormControl(''),
     }),
-    guests: new FormArray<FormArray>([
+    rooms: new FormArray<FormArray>([
       new FormArray([
         new FormGroup({
           firstName: new FormControl(''),
@@ -40,11 +40,11 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    console.warn(this.profileForm.value);
+    console.warn(this.travelerDetailsForm.value);
   }
 
-  get guestControls() {
-    return (this.profileForm.get('guests') as FormArray)
+  get roomsControls() {
+    return (this.travelerDetailsForm.get('rooms') as FormArray)
       .controls as FormArray[];
   }
 }
