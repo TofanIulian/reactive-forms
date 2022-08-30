@@ -12,7 +12,7 @@
     <input id="last-name" type="text" formControlName="phone" />
   </div>
 
-  <ng-container formArrayName="guests">
+  <ng-container formArrayName="rooms">
     <div
       *ngFor="let room of roomsControls; let roomIndex = index"
       [formArrayName]="roomIndex"
